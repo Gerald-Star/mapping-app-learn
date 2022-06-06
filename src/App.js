@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {jokeSets} from './JokesData.js'
+import Joke from './Joke.js'
 
-function App() {
+
+// to make an array of elements (eg. jokeElements) 
+//that returns when you call it use .map() nethod
+// start with const
+export default function App() {
+
+  const jokeElements = jokeSets.map(joke => {
+    return <Joke setup={joke.setup} punchline={joke.punchline} />
+  })
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      {jokeElements}
     </div>
-  );
+  )
 }
 
-export default App;
